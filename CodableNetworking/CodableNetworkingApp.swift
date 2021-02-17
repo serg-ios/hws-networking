@@ -11,7 +11,9 @@ import SwiftUI
 struct CodableNetworkingApp: App {
     var body: some Scene {
         WindowGroup {
+            let monitor = NetworkMonitor()
             ContentView()
+                .environmentObject(monitor)
         }
     }
 }

@@ -16,6 +16,12 @@ struct ContentView: View {
                     Text("Combine")
                     Image(systemName: "suit.heart.fill")
                 }
+            UserFriendlyNetworkingView()
+                .tag("networking")
+                .tabItem {
+                    Text("Networking")
+                    Image(systemName: "star.fill")
+                }
         }
     }
 }
