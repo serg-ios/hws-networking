@@ -20,6 +20,12 @@ struct ContentView: View {
                 .tag("networking")
                 .tabItem {
                     Text("Networking")
+                    Image(systemName: "network")
+                }
+            MultipleRequestsView()
+                .tag("multiple")
+                .tabItem {
+                    Text("Multiple")
                     Image(systemName: "star.fill")
                 }
             UploadView()

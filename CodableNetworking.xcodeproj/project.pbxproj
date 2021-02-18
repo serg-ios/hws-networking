@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7964B90A25DE62D40063AED3 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964B90925DE62D40063AED3 /* UploadView.swift */; };
+		7964B90E25DE6D0D0063AED3 /* MultipleRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964B90D25DE6D0D0063AED3 /* MultipleRequestsView.swift */; };
 		7984F2F925DD771C00809FA1 /* CodableNetworkingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F2F825DD771C00809FA1 /* CodableNetworkingApp.swift */; };
 		7984F2FB25DD771C00809FA1 /* CombineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F2FA25DD771C00809FA1 /* CombineView.swift */; };
 		7984F30025DD771E00809FA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7984F2FF25DD771E00809FA1 /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		7964B90925DE62D40063AED3 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		7964B90D25DE6D0D0063AED3 /* MultipleRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleRequestsView.swift; sourceTree = "<group>"; };
 		7984F2F525DD771C00809FA1 /* CodableNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodableNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7984F2F825DD771C00809FA1 /* CodableNetworkingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableNetworkingApp.swift; sourceTree = "<group>"; };
 		7984F2FA25DD771C00809FA1 /* CombineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				7984F30125DD771E00809FA1 /* Info.plist */,
+				7964B90D25DE6D0D0063AED3 /* MultipleRequestsView.swift */,
 				7984F2F825DD771C00809FA1 /* CodableNetworkingApp.swift */,
 				7984F2FA25DD771C00809FA1 /* CombineView.swift */,
 				7984F30C25DD828B00809FA1 /* ContentView.swift */,
@@ -151,6 +154,7 @@
 				7964B90A25DE62D40063AED3 /* UploadView.swift in Sources */,
 				7984F2FB25DD771C00809FA1 /* CombineView.swift in Sources */,
 				7984F30D25DD828B00809FA1 /* ContentView.swift in Sources */,
+				7964B90E25DE6D0D0063AED3 /* MultipleRequestsView.swift in Sources */,
 				7984F2F925DD771C00809FA1 /* CodableNetworkingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

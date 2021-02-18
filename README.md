@@ -101,7 +101,7 @@ func makeRequest() {
 
 [ReqRes](https://reqres.in) offers a great API against which you can test your front-end.
 
-To make a POST request with Combine, an URLRequest must be created:
+By default, `dataTaskPublisher` request method is GET. In order to make a POST request with Combine, an URLRequest must be created:
 
 ```swift
 func upload<Input: Encodable, Output: Decodable>(_ data: Input, url: URL, httpMethod: String = "POST", contentType: String = "application/json", completion: @escaping (Result<Output, UploadError>) -> Void) {
@@ -127,5 +127,40 @@ func upload<Input: Encodable, Output: Decodable>(_ data: Input, url: URL, httpMe
 
 `Just` is a kind of publisher that emits an output to each subscriber and then finishes, it's perfect for emitting errors.
 
+## Merging multiple reequests with Combine
+
+With `Zip`, multiple requests can be merged:
+
+```swift
+let messagesURL = URL(string: "https://www.hackingwithswift.com/samples/user-messages.json")!
+let messagesTask = fetch(messagesURL, defaultValue: [Message]())
+let favoritesURL = URL(string: "https://www.hackingwithswift.com/samples/user-favorites.json")!
+let favoritesTask = fetch(favoritesURL, defaultValue: Set<Int>())
+let combined = Publishers.Zip(messagesTask, favoritesTask)
+```
+
+The `sink` completion will run when all the zipped requests had finished and the parameters of the closure are the results of the requests in the corresponding order: 
+
+```swift
+combined.sink { messages, favorites in
+    self.messages = messages
+    self.favorites = favorites
+}
+```
+
+You can prove that this works, adding a random delay to each request, to make more clear that the view is populated all at once instead of step by step:
+
+```swift
+URLSession.shared.dataTaskPublisher(for: url)
+    .delay(for: .seconds(Double.random(in: 1...5)), scheduler: RunLoop.main)
+```
+
+Each publisher is not sinked immediately, the sink is done once all the publishers had been created.
+
+So, `eraseToAnyPublisher` must be called at the end of every publisher declaration. Otherwise, this compilation error will appear:
+
+```
+Publishers.ReplaceError<Publishers.Decode<Publishers.MapKeyPath<Publishers.Retry<URLSession.DataTaskPublisher>, Data>, T, JSONDecoder>>
+```
 
 
