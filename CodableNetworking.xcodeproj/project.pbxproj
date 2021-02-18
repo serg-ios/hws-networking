@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7964B90A25DE62D40063AED3 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964B90925DE62D40063AED3 /* UploadView.swift */; };
 		7984F2F925DD771C00809FA1 /* CodableNetworkingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F2F825DD771C00809FA1 /* CodableNetworkingApp.swift */; };
 		7984F2FB25DD771C00809FA1 /* CombineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F2FA25DD771C00809FA1 /* CombineView.swift */; };
-		7984F2FD25DD771E00809FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7984F2FC25DD771E00809FA1 /* Assets.xcassets */; };
 		7984F30025DD771E00809FA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7984F2FF25DD771E00809FA1 /* Preview Assets.xcassets */; };
 		7984F30D25DD828B00809FA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F30C25DD828B00809FA1 /* ContentView.swift */; };
 		7984F33125DD900200809FA1 /* UserFriendlyNetworkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F33025DD900200809FA1 /* UserFriendlyNetworkingView.swift */; };
+		7991653725DF236F0034AF15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7991653625DF236F0034AF15 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7964B90925DE62D40063AED3 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		7984F2F525DD771C00809FA1 /* CodableNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodableNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7984F2F825DD771C00809FA1 /* CodableNetworkingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableNetworkingApp.swift; sourceTree = "<group>"; };
 		7984F2FA25DD771C00809FA1 /* CombineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineView.swift; sourceTree = "<group>"; };
-		7984F2FC25DD771E00809FA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7984F2FF25DD771E00809FA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7984F30125DD771E00809FA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7984F30C25DD828B00809FA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7984F33025DD900200809FA1 /* UserFriendlyNetworkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFriendlyNetworkingView.swift; sourceTree = "<group>"; };
+		7991653625DF236F0034AF15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 				7984F2FA25DD771C00809FA1 /* CombineView.swift */,
 				7984F30C25DD828B00809FA1 /* ContentView.swift */,
 				7984F33025DD900200809FA1 /* UserFriendlyNetworkingView.swift */,
-				7984F2FC25DD771E00809FA1 /* Assets.xcassets */,
+				7991653625DF236F0034AF15 /* Assets.xcassets */,
 				7984F2FE25DD771E00809FA1 /* Preview Content */,
+				7964B90925DE62D40063AED3 /* UploadView.swift */,
 			);
 			path = CodableNetworking;
 			sourceTree = "<group>";
@@ -132,8 +135,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7991653725DF236F0034AF15 /* Assets.xcassets in Resources */,
 				7984F30025DD771E00809FA1 /* Preview Assets.xcassets in Resources */,
-				7984F2FD25DD771E00809FA1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7984F33125DD900200809FA1 /* UserFriendlyNetworkingView.swift in Sources */,
+				7964B90A25DE62D40063AED3 /* UploadView.swift in Sources */,
 				7984F2FB25DD771C00809FA1 /* CombineView.swift in Sources */,
 				7984F30D25DD828B00809FA1 /* ContentView.swift in Sources */,
 				7984F2F925DD771C00809FA1 /* CodableNetworkingApp.swift in Sources */,

@@ -6,6 +6,7 @@ Combine, Network access, Codable.
 
 https://www.hackingwithswift.com/plus/networking/codable-networking-with-combine
 https://www.hackingwithswift.com/plus/networking/user-friendly-network-access
+https://www.hackingwithswift.com/plus/networking/uploading-codable-data
 
 ## Codable networking with Combine
 
@@ -95,3 +96,36 @@ func makeRequest() {
     }.resume()
 }
 ```
+
+## Uploading codable data
+
+[ReqRes](https://reqres.in) offers a great API against which you can test your front-end.
+
+To make a POST request with Combine, an URLRequest must be created:
+
+```swift
+func upload<Input: Encodable, Output: Decodable>(_ data: Input, url: URL, httpMethod: String = "POST", contentType: String = "application/json", completion: @escaping (Result<Output, UploadError>) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod
+        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        let encoder = JSONEncoder()
+        request.httpBody = try? encoder.encode(data)
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: Output.self, decoder: JSONDecoder())
+            .map(Result.success)
+            .catch { error -> Just<Result<Output, UploadError>> in
+                error is DecodingError
+                    ? Just(.failure(.decodeFailed))
+                    : Just(.failure(.uploadFailed))
+            }
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: completion)
+            .store(in: &requests)
+    }
+```
+
+`Just` is a kind of publisher that emits an output to each subscriber and then finishes, it's perfect for emitting errors.
+
+
+

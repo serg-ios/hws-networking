@@ -22,6 +22,12 @@ struct ContentView: View {
                     Text("Networking")
                     Image(systemName: "star.fill")
                 }
+            UploadView()
+                .tag("upload")
+                .tabItem {
+                    Text("Upload")
+                    Image(systemName: "icloud.and.arrow.up.fill")
+                }
         }
     }
 }
