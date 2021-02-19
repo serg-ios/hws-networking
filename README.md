@@ -7,6 +7,8 @@ Combine, Network access, Codable.
 https://www.hackingwithswift.com/plus/networking/codable-networking-with-combine
 https://www.hackingwithswift.com/plus/networking/user-friendly-network-access
 https://www.hackingwithswift.com/plus/networking/uploading-codable-data
+https://www.hackingwithswift.com/plus/networking/merging-multiple-requests-with-combine
+https://www.hackingwithswift.com/plus/networking/creating-chained-network-requests-with-combine
 
 ## Codable networking with Combine
 
@@ -127,7 +129,7 @@ func upload<Input: Encodable, Output: Decodable>(_ data: Input, url: URL, httpMe
 
 `Just` is a kind of publisher that emits an output to each subscriber and then finishes, it's perfect for emitting errors.
 
-## Merging multiple reequests with Combine
+## Merging multiple requests with Combine
 
 With `Zip`, multiple requests can be merged:
 
@@ -163,4 +165,34 @@ So, `eraseToAnyPublisher` must be called at the end of every publisher declarati
 Publishers.ReplaceError<Publishers.Decode<Publishers.MapKeyPath<Publishers.Retry<URLSession.DataTaskPublisher>, Data>, T, JSONDecoder>>
 ```
 
+## Creating chaining network requests with Combine
 
+When the result of a `map` are multiple publishers, `flatMap` should be used instead.
+
+It's different calling `flatMap` in an `Sequence` than in a `Publisher`. In the former, an array of arrays will become an array, in the latest, a publisher of publishers will become a publisher.
+
+```swift
+self.fetch(url, defaultValue: [URL]())
+    .flatMap { urls in                             // Publisher flatMap
+        urls.publisher.flatMap { url in            // Publisher flatMap
+            fetch(url, defaultValue: [NewsItem]())
+        }
+    }
+    .collect()
+    .sink { values in
+        items = values
+        .flatMap { $0 }                            // Sequence flatMap
+        .sorted { $0.id > $1.id }
+    }
+    .store(in: &requests)
+```
+
+A `Sequence` publisher will emit multiple values if allowed. So `sink` will be called multiple times, if we only want it to be called once, with the last value emitted, `collect()` must be used:
+```swift
+.flatMap { urls in
+    urls.publisher.flatMap { url in
+        fetch(url, defaultValue: [NewsItem]())
+    }
+}
+.collect()
+```

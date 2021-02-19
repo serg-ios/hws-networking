@@ -34,6 +34,12 @@ struct ContentView: View {
                     Text("Upload")
                     Image(systemName: "icloud.and.arrow.up.fill")
                 }
+            ChainedRequestsView()
+                .tag("chained")
+                .tabItem {
+                    Text("Chained")
+                    Image(systemName: "link")
+                }
         }
     }
 }
